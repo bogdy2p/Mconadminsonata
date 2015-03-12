@@ -35,6 +35,7 @@ class ClientAdmin extends Admin {
         $form
                 ->with('General')
                 ->add('name')
+                ->add('dbid')
                 ->end()
         ;
     }

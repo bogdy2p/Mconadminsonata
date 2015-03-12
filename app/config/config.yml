@@ -128,3 +128,20 @@ sonata_block:
         #sonata.media.block.media:
         #sonata.media.block.gallery:
         #sonata.media.block.feature_media:
+#sonata_admin:
+#    security:
+#        handler: sonata.admin.security.handler.role
+#            
+#sonata_admin:
+#    security:
+#        handler: sonata.admin.security.handler.acl
+#        # access control list securty information
+#        information:
+#            GUEST: [VIEW, LIST]
+#            STAFF: [EDIT, LIST, CREATE]
+#            EDITOR: [OPERATOR, EXPORT]
+#            ADMIN: [MASTER]
+#        #the DELETE admin permission means the user is allowed to batch delete objects
+#        admin_permissions: [CREATE, LIST, DELETE, UNDELETE, EXPORT, OPERATOR, MASTER]
+#        #permissions related to objects
+#        object_permissions: [VIEW, EDIT, DELETE, UNDELETE, OPERATOR, MASTER, OWNER]

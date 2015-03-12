@@ -79,6 +79,11 @@ security:
             stateless:  true
             wsse:       true
             anonymous:  false
+        wsse_secured_admin:
+            pattern:    /admin.*
+            stateless:  true
+            wsse:       true
+            anonymous:  false
     # with these settings you can restrict or allow access for different parts
     # of your application based on roles, ip, host or methods
     # http://symfony.com/doc/current/book/security.html#security-book-access-control-matching-options
@@ -86,3 +91,4 @@ security:
         #- { path: ^/login, roles: IS_AUTHENTICATED_ANONYMOUSLY, requires_channel: https }
         #
         - { path: ^/api/v1/campaigns.*, roles: ROLE_VIEWER }
+        - { path: ^/admin.*, roles: ROLE_ADMINISTRATOR }
