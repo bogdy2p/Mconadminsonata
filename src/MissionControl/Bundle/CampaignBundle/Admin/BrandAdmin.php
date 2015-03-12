@@ -20,6 +20,7 @@ class BrandAdmin extends Admin {
         $list
                 ->addIdentifier('id')
                 ->add('name')
+                ->add('division')
                 ->add('_action', 'actions', array(
                     'actions' => array(
                         'edit' => array(),

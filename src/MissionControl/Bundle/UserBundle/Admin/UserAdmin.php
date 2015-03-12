@@ -9,7 +9,7 @@ use Sonata\AdminBundle\Datagrid\ListMapper;
 use Sonata\AdminBundle\Show\ShowMapper;
 
 /**
- * Description of BrandAdmin
+ * Description of UserAdmin
  *
  * @author pbc
  */

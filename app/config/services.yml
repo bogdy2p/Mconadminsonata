@@ -15,25 +15,25 @@ services:
     admin.client:
         class: MissionControl\Bundle\CampaignBundle\Admin\ClientAdmin
         tags:
-            - { name: sonata.admin, manager_type: orm, group: Clients, label: Clients }
+            - { name: sonata.admin, manager_type: orm, group: References, label: Clients }
         arguments: [null, MissionControl\Bundle\CampaignBundle\Entity\Client, SonataAdminBundle:CRUD]
     admin.brand:
         class: MissionControl\Bundle\CampaignBundle\Admin\BrandAdmin
         tags:
-            - { name: sonata.admin, manager_type: orm, group: Brands, label: Brands }
+            - { name: sonata.admin, manager_type: orm, group: References, label: Brands }
         arguments: [null, MissionControl\Bundle\CampaignBundle\Entity\Brand, SonataAdminBundle:CRUD]
     admin.division:
         class: MissionControl\Bundle\CampaignBundle\Admin\DivisionAdmin
         tags:
-            - { name: sonata.admin, manager_type: orm, group: Divisions, label: Divisions }
+            - { name: sonata.admin, manager_type: orm, group: References, label: Divisions }
         arguments: [null, MissionControl\Bundle\CampaignBundle\Entity\Division, SonataAdminBundle:CRUD]
     admin.productline:
         class: MissionControl\Bundle\CampaignBundle\Admin\ProductlineAdmin
         tags:
-            - { name: sonata.admin, manager_type: orm, group: Productlines, label: Productlines }
+            - { name: sonata.admin, manager_type: orm, group: References, label: Productlines }
         arguments: [null, MissionControl\Bundle\CampaignBundle\Entity\Productline, SonataAdminBundle:CRUD]
     admin.product:
         class: MissionControl\Bundle\CampaignBundle\Admin\ProductAdmin
         tags:
-            - { name: sonata.admin, manager_type: orm, group: Products, label: Products }
+            - { name: sonata.admin, manager_type: orm, group: References, label: Products }
         arguments: [null, MissionControl\Bundle\CampaignBundle\Entity\Product, SonataAdminBundle:CRUD]

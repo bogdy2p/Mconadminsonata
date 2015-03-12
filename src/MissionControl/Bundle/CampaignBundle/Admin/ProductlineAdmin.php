@@ -9,7 +9,7 @@ use Sonata\AdminBundle\Datagrid\ListMapper;
 use Sonata\AdminBundle\Show\ShowMapper;
 
 /**
- * Description of BrandAdmin
+ * Description of ProductlineAdmin
  *
  * @author pbc
  */
@@ -20,6 +20,7 @@ class ProductlineAdmin extends Admin {
         $list
                 ->addIdentifier('id')
                 ->add('name')
+                ->add('brand')
                 ->add('_action', 'actions', array(
                     'actions' => array(
                         'edit' => array(),

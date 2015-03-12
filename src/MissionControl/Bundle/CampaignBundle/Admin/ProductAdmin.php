@@ -20,6 +20,7 @@ class ProductAdmin extends Admin {
         $list
                 ->addIdentifier('id')
                 ->add('name')
+                ->add('productline')
                 ->add('_action', 'actions', array(
                     'actions' => array(
                         'edit' => array(),
