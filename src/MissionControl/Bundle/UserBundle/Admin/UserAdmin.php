@@ -42,7 +42,6 @@ class UserAdmin extends Admin {
                 ->add('office')
                 ->add('phone')
                 ->add('title')
-//                ->add('createdAt', 'date', array("auto_initialize" => true))
                 ->end()
                 
                 

@@ -21,6 +21,11 @@ class Productline {
 
         $this->campaigns = new ArrayCollection();
         $this->products = new ArrayCollection();
+        $this->setUpdatedAt(new \DateTime('now'));
+        
+        if($this->getCreatedAt() == null) {
+            $this->setCreatedAt(new \DateTime('now'));
+        }
     }
 
     public function __toString() {

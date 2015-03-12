@@ -16,6 +16,11 @@ class Division {
     public function __construct() {
 
         $this->brands = new ArrayCollection();
+        $this->setUpdatedAt(new \DateTime('now'));
+        
+        if($this->getCreatedAt() == null) {
+            $this->setCreatedAt(new \DateTime('now'));
+        }
     }
 
     /**

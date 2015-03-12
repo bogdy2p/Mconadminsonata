@@ -22,6 +22,11 @@ class Client {
 
         $this->campaigns = new ArrayCollection();
         $this->divisions = new ArrayCollection();
+        $this->setUpdatedAt(new \DateTime('now'));
+        
+        if($this->getCreatedAt() == null) {
+            $this->setCreatedAt(new \DateTime('now'));
+        }
     }
 
     /**

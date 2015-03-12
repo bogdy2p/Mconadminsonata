@@ -22,6 +22,11 @@ class Brand {
 
         $this->campaigns = new ArrayCollection();
         $this->productlines = new ArrayCollection();
+        $this->setUpdatedAt(new \DateTime('now'));
+        
+        if($this->getCreatedAt() == null) {
+            $this->setCreatedAt(new \DateTime('now'));
+        }
     }
 
     public function __toString() {
