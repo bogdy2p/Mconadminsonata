@@ -13,7 +13,7 @@ use Sonata\AdminBundle\Show\ShowMapper;
  *
  * @author pbc
  */
-class DivisionAdmin extends Admin {
+class ProductAdmin extends Admin {
 
     public function configureListFields(ListMapper $list) {
 
@@ -51,7 +51,7 @@ class DivisionAdmin extends Admin {
         $filter
                 ->add('id')
                 ->add('name')
-                ->add('client')
+                ->add('productline')
         ;
     }
 

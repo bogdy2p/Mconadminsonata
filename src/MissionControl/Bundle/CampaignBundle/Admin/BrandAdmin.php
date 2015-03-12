@@ -51,6 +51,7 @@ class BrandAdmin extends Admin {
         $filter
                 ->add('id')
                 ->add('name')
+                ->add('division')
         ;
     }
 

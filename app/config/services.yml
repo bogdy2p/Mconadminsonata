@@ -27,3 +27,13 @@ services:
         tags:
             - { name: sonata.admin, manager_type: orm, group: Divisions, label: Divisions }
         arguments: [null, MissionControl\Bundle\CampaignBundle\Entity\Division, SonataAdminBundle:CRUD]
+    admin.productline:
+        class: MissionControl\Bundle\CampaignBundle\Admin\ProductlineAdmin
+        tags:
+            - { name: sonata.admin, manager_type: orm, group: Productlines, label: Productlines }
+        arguments: [null, MissionControl\Bundle\CampaignBundle\Entity\Productline, SonataAdminBundle:CRUD]
+    admin.product:
+        class: MissionControl\Bundle\CampaignBundle\Admin\ProductAdmin
+        tags:
+            - { name: sonata.admin, manager_type: orm, group: Products, label: Products }
+        arguments: [null, MissionControl\Bundle\CampaignBundle\Entity\Product, SonataAdminBundle:CRUD]
