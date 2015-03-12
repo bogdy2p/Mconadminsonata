@@ -28,6 +28,11 @@ class User extends BaseUser {
         $this->campaigns = new ArrayCollection();
         $this->tasks = new ArrayCollection();
         $this->files = new ArrayCollection();
+        $this->setUpdatedAt(new \DateTime('now'));
+        
+        if($this->getCreatedAt() == null) {
+            $this->setCreatedAt(new \DateTime('now'));
+        }
     }
 
     /**

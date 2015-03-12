@@ -35,6 +35,9 @@ class BrandAdmin extends Admin {
         $form
                 ->with('General')
                 ->add('name')
+                ->add('division')
+                ->add('createdAt')
+                ->add('updatedAt')
                 ->end()
         ;
     }

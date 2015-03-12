@@ -30,12 +30,24 @@ class UserAdmin extends Admin {
 
     public function configureFormFields(FormMapper $form) {
 
-
+        $date = new \DateTime();
         $form
                 ->with('General')
                 ->add('username')
+                ->add('email')
+                ->add('password')
+                ->add('enabled')
+                ->add('firstname')
+                ->add('lastname')
+                ->add('office')
+                ->add('phone')
+                ->add('title')
+//                ->add('createdAt', 'date', array("auto_initialize" => true))
                 ->end()
+                
+                
         ;
+
     }
 
     public function configureShowFields(ShowMapper $show) {

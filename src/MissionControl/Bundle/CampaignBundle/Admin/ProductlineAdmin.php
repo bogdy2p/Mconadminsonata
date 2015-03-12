@@ -35,6 +35,9 @@ class ProductlineAdmin extends Admin {
         $form
                 ->with('General')
                 ->add('name')
+                ->add('brand')
+                ->add('createdAt')
+                ->add('updatedAt')
                 ->end()
         ;
     }

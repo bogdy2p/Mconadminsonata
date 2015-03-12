@@ -35,6 +35,10 @@ class ProductAdmin extends Admin {
         $form
                 ->with('General')
                 ->add('name')
+                ->add('productline')
+                ->add('createdAt')
+                ->add('updatedAt')
+                
                 ->end()
         ;
     }

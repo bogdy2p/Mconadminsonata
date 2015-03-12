@@ -36,6 +36,9 @@ class ClientAdmin extends Admin {
                 ->with('General')
                 ->add('name')
                 ->add('dbid')
+                ->add('createdAt')
+                ->add('updatedAt')
+
                 ->end()
         ;
     }
