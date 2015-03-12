@@ -1,0 +1,2 @@
+﻿This file is uploaded multiple times to different tasks of a campaign.
+PUT and GET calls are used to see what the API will return to the user.

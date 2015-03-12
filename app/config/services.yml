@@ -1,0 +1,29 @@
+# Learn more about services, parameters and containers at
+# http://symfony.com/doc/current/book/service_container.html
+parameters:
+#    parameter_name: value
+
+services:
+#    service_name:
+#        class: AppBundle\Directory\ClassName
+#        arguments: ["@another_service_name", "plain_value", "%parameter_name%"]
+    admin.user:
+        class: MissionControl\Bundle\UserBundle\Admin\UserAdmin
+        tags:
+            - { name: sonata.admin, manager_type: orm, group: Users, label: Users }
+        arguments: [null, MissionControl\Bundle\UserBundle\Entity\User, SonataAdminBundle:CRUD]
+    admin.client:
+        class: MissionControl\Bundle\CampaignBundle\Admin\ClientAdmin
+        tags:
+            - { name: sonata.admin, manager_type: orm, group: Clients, label: Clients }
+        arguments: [null, MissionControl\Bundle\CampaignBundle\Entity\Client, SonataAdminBundle:CRUD]
+    admin.brand:
+        class: MissionControl\Bundle\CampaignBundle\Admin\BrandAdmin
+        tags:
+            - { name: sonata.admin, manager_type: orm, group: Brands, label: Brands }
+        arguments: [null, MissionControl\Bundle\CampaignBundle\Entity\Brand, SonataAdminBundle:CRUD]
+    admin.division:
+        class: MissionControl\Bundle\CampaignBundle\Admin\DivisionAdmin
+        tags:
+            - { name: sonata.admin, manager_type: orm, group: Divisions, label: Divisions }
+        arguments: [null, MissionControl\Bundle\CampaignBundle\Entity\Division, SonataAdminBundle:CRUD]

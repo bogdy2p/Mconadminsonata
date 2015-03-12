@@ -1,0 +1,31 @@
+MissionControl\Bundle\FileBundle\Entity\File:
+    constraints:
+        - Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity: 
+            fields: [uuid]
+    properties:
+        file:
+            - File:
+                maxSize: 60000000
+            - NotNull:
+                message: "Please insert the XML file for the new project."
+        uuid:
+            - NotNull:
+                message: "Unique file identifier cannot be null."
+        fileName:
+            - NotNull:
+                message: "File name cannot be null."
+        originalName:
+            - NotNull:
+                message: "Original name cannot be null."
+        contentType:
+            - NotNull:
+                message: "Content type must have a value."
+        createdAt:
+            - NotNull:
+                message: "Date of creation was not generated."
+        updatedAt:
+            - NotNull:
+                message: "Date of update was not generated."
+        fileLength:
+            - NotNull:
+                message: "File length must be specified."

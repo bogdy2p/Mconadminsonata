@@ -1,0 +1,46 @@
+lightdata:
+    resource: "@LightdataBundle/Resources/config/routing.yml"
+    type:     rest
+    prefix:   /api
+
+task:
+    resource: "@TaskBundle/Controller/"
+    type:     annotation
+    prefix:   /
+
+file:
+    resource: "@FileBundle/Controller/"
+    type:     annotation
+    prefix:   /
+reference:
+    resource: "@CampaignBundle/Controller/ReferenceController.php"
+    type:     annotation
+mission_control_user:
+    resource: @UserBundle/Controller/
+    type:     annotation
+mission_control_campaign:
+    type: rest
+    prefix: /api
+    resource: "@CampaignBundle/Resources/config/routing.yml"
+NelmioApiDocBundle:
+    resource: "@NelmioApiDocBundle/Resources/config/routing.yml"
+    prefix: /api/v1/doc
+
+
+#user_crud_admin:
+#    resource: "@UserBundle/Controller"
+#    type:       annotation
+#    prefix: /admin
+#resources_crud_admin:
+#    resource: "@CampaignBundle/Controller"
+#    type:       annotation
+#    prefix: /admin
+   
+admin:
+    resource: '@SonataAdminBundle/Resources/config/routing/sonata_admin.xml'
+    prefix: /admin
+    
+_sonata_admin:
+    resource: .
+    type: sonata_admin
+    prefix: /admin

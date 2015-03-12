@@ -1,0 +1,11 @@
+campaign_api:
+   type: rest
+   prefix: /v1
+   resource: MissionControl\Bundle\CampaignBundle\Controller\CampaignController
+matrix_interaction:
+   type: annotation
+   resource: MissionControl\Bundle\CampaignBundle\Controller\MatrixInteractionController
+task_api:
+   type: rest
+   prefix: /v1
+   resource: MissionControl\Bundle\TaskBundle\Controller\TaskController

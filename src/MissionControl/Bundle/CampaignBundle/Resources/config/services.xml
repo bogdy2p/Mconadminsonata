@@ -1,0 +1,31 @@
+<?xml version="1.0" ?>
+
+<container xmlns="http://symfony.com/schema/dic/services"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://symfony.com/schema/dic/services http://symfony.com/schema/dic/services/services-1.0.xsd">
+
+    <services>
+        <service id="wsse.security.authentication.provider"
+            class="MissionControl\Bundle\CampaignBundle\Security\Authentication\Provider\WsseProvider" public="false">
+            <argument /> <!-- User Provider -->
+            <argument>%kernel.cache_dir%/security/nonces</argument>
+        </service>
+        
+        <service id="mission_control.user_manager" class="MissionControl\Bundle\UserBundle\Entity\UserManager" public="false">
+            <argument type="service" id="security.encoder_factory" />
+            <argument type="service" id="fos_user.util.username_canonicalizer" />
+            <argument type="service" id="fos_user.util.email_canonicalizer" />
+            <argument type="service" id="fos_user.entity_manager" />
+            <argument>MissionControl\Bundle\UserBundle\Entity\User</argument>
+        </service>
+        
+        <service id="wsse.security.authentication.listener"
+            class="MissionControl\Bundle\CampaignBundle\Security\Authentication\Firewall\WsseListener" public="false">
+            <argument type="service" id="security.context"/>
+            <argument type="service" id="security.authentication.manager" />
+        </service>
+        <service id="mission_control.campaign.security.user_provider.api_key" class="MissionControl\Bundle\CampaignBundle\Security\UserProvider" public="false">
+            <argument type="service" id="mission_control.user_manager" />
+        </service>
+    </services>
+</container>
