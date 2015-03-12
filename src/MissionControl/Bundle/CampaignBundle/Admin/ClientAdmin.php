@@ -49,7 +49,6 @@ class ClientAdmin extends Admin {
 
     public function configureDatagridFilters(DatagridMapper $filter) {
         $filter
-                ->add('id')
                 ->add('name')
         ;
     }

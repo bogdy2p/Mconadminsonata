@@ -37,3 +37,7 @@ services:
         tags:
             - { name: sonata.admin, manager_type: orm, group: References, label: Products }
         arguments: [null, MissionControl\Bundle\CampaignBundle\Entity\Product, SonataAdminBundle:CRUD]
+    twig.extension.text:
+        class: Twig_Extensions_Extension_Text
+        tags:
+            - { name: twig.extension }
