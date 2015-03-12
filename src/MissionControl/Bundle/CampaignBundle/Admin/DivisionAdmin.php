@@ -33,11 +33,9 @@ class DivisionAdmin extends Admin {
 
 
         $form
-                ->with('General')
+                ->with('Please provide the new Division information:')
                 ->add('name')
                 ->add('client')
-                ->add('createdAt')
-                ->add('updatedAt')
                 ->end()
         ;
     }

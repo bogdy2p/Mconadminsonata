@@ -33,11 +33,9 @@ class BrandAdmin extends Admin {
 
 
         $form
-                ->with('General')
+                ->with('Please provide the new Brand information:')
                 ->add('name')
                 ->add('division')
-                ->add('createdAt')
-                ->add('updatedAt')
                 ->end()
         ;
     }

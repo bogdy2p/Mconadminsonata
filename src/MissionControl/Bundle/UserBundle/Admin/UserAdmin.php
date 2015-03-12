@@ -32,7 +32,7 @@ class UserAdmin extends Admin {
 
         $date = new \DateTime();
         $form
-                ->with('General')
+                ->with('Please provide the new User information:')
                 ->add('username')
                 ->add('email')
                 ->add('password')

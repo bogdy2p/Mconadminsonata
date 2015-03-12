@@ -33,11 +33,9 @@ class ProductlineAdmin extends Admin {
 
 
         $form
-                ->with('General')
+                ->with('Please provide the new Productline information:')
                 ->add('name')
                 ->add('brand')
-                ->add('createdAt')
-                ->add('updatedAt')
                 ->end()
         ;
     }
