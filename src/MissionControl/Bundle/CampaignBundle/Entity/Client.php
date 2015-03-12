@@ -85,6 +85,10 @@ class Client {
     protected $campaigns;
 
    
+    
+    public function __toString() {
+        return $this->name;
+    }
 
     /**
      * Get id

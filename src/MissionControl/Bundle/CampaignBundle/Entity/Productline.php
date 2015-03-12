@@ -23,6 +23,10 @@ class Productline {
         $this->products = new ArrayCollection();
     }
 
+    public function __toString() {
+        return $this->name;
+    }
+
     /**
      * @var integer
      *
@@ -38,7 +42,6 @@ class Productline {
 //     * @ORM\JoinColumn(name="client_id", nullable=FALSE, referencedColumnName="id" )
 //     */
 //    private $client;
-
 //    /**
 //     * @ORM\ManyToOne(targetEntity="MissionControl\Bundle\CampaignBundle\Entity\Division", inversedBy="productlines", cascade={"persist"})
 //     * @ORM\JoinColumn(name="division_id", nullable=FALSE, referencedColumnName="id" )

@@ -23,6 +23,10 @@ class Product {
         $this->campaigns = new ArrayCollection();
     }
 
+    public function __toString() {
+        return $this->name;
+    }
+
     /**
      * @var integer
      *
@@ -74,14 +78,12 @@ class Product {
      */
     protected $campaigns;
 
-
     /**
      * Get id
      *
      * @return integer 
      */
-    public function getId()
-    {
+    public function getId() {
         return $this->id;
     }
 
@@ -91,8 +93,7 @@ class Product {
      * @param string $name
      * @return Product
      */
-    public function setName($name)
-    {
+    public function setName($name) {
         $this->name = $name;
 
         return $this;
@@ -103,8 +104,7 @@ class Product {
      *
      * @return string 
      */
-    public function getName()
-    {
+    public function getName() {
         return $this->name;
     }
 
@@ -114,8 +114,7 @@ class Product {
      * @param \DateTime $createdAt
      * @return Product
      */
-    public function setCreatedAt($createdAt)
-    {
+    public function setCreatedAt($createdAt) {
         $this->createdAt = $createdAt;
 
         return $this;
@@ -126,8 +125,7 @@ class Product {
      *
      * @return \DateTime 
      */
-    public function getCreatedAt()
-    {
+    public function getCreatedAt() {
         return $this->createdAt;
     }
 
@@ -137,8 +135,7 @@ class Product {
      * @param \DateTime $updatedAt
      * @return Product
      */
-    public function setUpdatedAt($updatedAt)
-    {
+    public function setUpdatedAt($updatedAt) {
         $this->updatedAt = $updatedAt;
 
         return $this;
@@ -149,8 +146,7 @@ class Product {
      *
      * @return \DateTime 
      */
-    public function getUpdatedAt()
-    {
+    public function getUpdatedAt() {
         return $this->updatedAt;
     }
 
@@ -160,8 +156,7 @@ class Product {
      * @param \MissionControl\Bundle\CampaignBundle\Entity\Client $client
      * @return Product
      */
-    public function setClient(\MissionControl\Bundle\CampaignBundle\Entity\Client $client)
-    {
+    public function setClient(\MissionControl\Bundle\CampaignBundle\Entity\Client $client) {
         $this->client = $client;
 
         return $this;
@@ -172,8 +167,7 @@ class Product {
      *
      * @return \MissionControl\Bundle\CampaignBundle\Entity\Client 
      */
-    public function getClient()
-    {
+    public function getClient() {
         return $this->client;
     }
 
@@ -183,8 +177,7 @@ class Product {
      * @param \MissionControl\Bundle\CampaignBundle\Entity\Productline $productline
      * @return Product
      */
-    public function setProductline(\MissionControl\Bundle\CampaignBundle\Entity\Productline $productline)
-    {
+    public function setProductline(\MissionControl\Bundle\CampaignBundle\Entity\Productline $productline) {
         $this->productline = $productline;
 
         return $this;
@@ -195,8 +188,7 @@ class Product {
      *
      * @return \MissionControl\Bundle\CampaignBundle\Entity\Productline 
      */
-    public function getProductline()
-    {
+    public function getProductline() {
         return $this->productline;
     }
 
@@ -206,8 +198,7 @@ class Product {
      * @param \MissionControl\Bundle\CampaignBundle\Entity\Brand $brand
      * @return Product
      */
-    public function setBrand(\MissionControl\Bundle\CampaignBundle\Entity\Brand $brand)
-    {
+    public function setBrand(\MissionControl\Bundle\CampaignBundle\Entity\Brand $brand) {
         $this->brand = $brand;
 
         return $this;
@@ -218,8 +209,7 @@ class Product {
      *
      * @return \MissionControl\Bundle\CampaignBundle\Entity\Brand 
      */
-    public function getBrand()
-    {
+    public function getBrand() {
         return $this->brand;
     }
 
@@ -229,8 +219,7 @@ class Product {
      * @param \MissionControl\Bundle\CampaignBundle\Entity\Campaign $campaigns
      * @return Product
      */
-    public function addCampaign(\MissionControl\Bundle\CampaignBundle\Entity\Campaign $campaigns)
-    {
+    public function addCampaign(\MissionControl\Bundle\CampaignBundle\Entity\Campaign $campaigns) {
         $this->campaigns[] = $campaigns;
 
         return $this;
@@ -241,8 +230,7 @@ class Product {
      *
      * @param \MissionControl\Bundle\CampaignBundle\Entity\Campaign $campaigns
      */
-    public function removeCampaign(\MissionControl\Bundle\CampaignBundle\Entity\Campaign $campaigns)
-    {
+    public function removeCampaign(\MissionControl\Bundle\CampaignBundle\Entity\Campaign $campaigns) {
         $this->campaigns->removeElement($campaigns);
     }
 
@@ -251,8 +239,8 @@ class Product {
      *
      * @return \Doctrine\Common\Collections\Collection 
      */
-    public function getCampaigns()
-    {
+    public function getCampaigns() {
         return $this->campaigns;
     }
+
 }

@@ -11,13 +11,11 @@ use Doctrine\Common\Collections\ArrayCollection;
  * @ORM\Table(name="division")
  * @ORM\Entity
  */
-class Division
-{
+class Division {
 
     public function __construct() {
 
         $this->brands = new ArrayCollection();
-
     }
 
     /**
@@ -39,7 +37,7 @@ class Division
      * @ORM\OneToMany(targetEntity="MissionControl\Bundle\CampaignBundle\Entity\Brand", mappedBy="division")
      */
     private $brands;
-    
+
 //      /**
 //     * @ORM\OneToMany(targetEntity="MissionControl\Bundle\CampaignBundle\Entity\Productline", mappedBy="division")
 //     */
@@ -52,7 +50,7 @@ class Division
      */
     private $name;
 
-     /**
+    /**
      * @ORM\Column(type="datetime" , name="created_at")
      */
     protected $createdAt;
@@ -61,13 +59,17 @@ class Division
      * @ORM\Column(type="datetime" , name="updated_at", nullable=false)
      */
     protected $updatedAt;
+
+    public function __toString() {
+        return $this->name;
+    }
+
     /**
      * Get id
      *
      * @return integer 
      */
-    public function getId()
-    {
+    public function getId() {
         return $this->id;
     }
 
@@ -77,8 +79,7 @@ class Division
      * @param string $name
      * @return Division
      */
-    public function setName($name)
-    {
+    public function setName($name) {
         $this->name = $name;
 
         return $this;
@@ -89,8 +90,7 @@ class Division
      *
      * @return string 
      */
-    public function getName()
-    {
+    public function getName() {
         return $this->name;
     }
 
@@ -100,8 +100,7 @@ class Division
      * @param \DateTime $createdAt
      * @return Division
      */
-    public function setCreatedAt($createdAt)
-    {
+    public function setCreatedAt($createdAt) {
         $this->createdAt = $createdAt;
 
         return $this;
@@ -112,8 +111,7 @@ class Division
      *
      * @return \DateTime 
      */
-    public function getCreatedAt()
-    {
+    public function getCreatedAt() {
         return $this->createdAt;
     }
 
@@ -123,8 +121,7 @@ class Division
      * @param \DateTime $updatedAt
      * @return Division
      */
-    public function setUpdatedAt($updatedAt)
-    {
+    public function setUpdatedAt($updatedAt) {
         $this->updatedAt = $updatedAt;
 
         return $this;
@@ -135,8 +132,7 @@ class Division
      *
      * @return \DateTime 
      */
-    public function getUpdatedAt()
-    {
+    public function getUpdatedAt() {
         return $this->updatedAt;
     }
 
@@ -146,8 +142,7 @@ class Division
      * @param integer $id
      * @return Division
      */
-    public function setId($id)
-    {
+    public function setId($id) {
         $this->id = $id;
 
         return $this;
@@ -159,8 +154,7 @@ class Division
      * @param \MissionControl\Bundle\CampaignBundle\Entity\Client $client
      * @return Division
      */
-    public function setClient(\MissionControl\Bundle\CampaignBundle\Entity\Client $client = null)
-    {
+    public function setClient(\MissionControl\Bundle\CampaignBundle\Entity\Client $client = null) {
         $this->client = $client;
 
         return $this;
@@ -171,8 +165,7 @@ class Division
      *
      * @return \MissionControl\Bundle\CampaignBundle\Entity\Client 
      */
-    public function getClient()
-    {
+    public function getClient() {
         return $this->client;
     }
 
@@ -182,8 +175,7 @@ class Division
      * @param \MissionControl\Bundle\CampaignBundle\Entity\Brand $brands
      * @return Division
      */
-    public function addBrand(\MissionControl\Bundle\CampaignBundle\Entity\Brand $brands)
-    {
+    public function addBrand(\MissionControl\Bundle\CampaignBundle\Entity\Brand $brands) {
         $this->brands[] = $brands;
 
         return $this;
@@ -194,8 +186,7 @@ class Division
      *
      * @param \MissionControl\Bundle\CampaignBundle\Entity\Brand $brands
      */
-    public function removeBrand(\MissionControl\Bundle\CampaignBundle\Entity\Brand $brands)
-    {
+    public function removeBrand(\MissionControl\Bundle\CampaignBundle\Entity\Brand $brands) {
         $this->brands->removeElement($brands);
     }
 
@@ -204,8 +195,7 @@ class Division
      *
      * @return \Doctrine\Common\Collections\Collection 
      */
-    public function getBrands()
-    {
+    public function getBrands() {
         return $this->brands;
     }
 
@@ -215,8 +205,7 @@ class Division
      * @param \MissionControl\Bundle\CampaignBundle\Entity\Productline $productlines
      * @return Division
      */
-    public function addProductline(\MissionControl\Bundle\CampaignBundle\Entity\Productline $productlines)
-    {
+    public function addProductline(\MissionControl\Bundle\CampaignBundle\Entity\Productline $productlines) {
         $this->productlines[] = $productlines;
 
         return $this;
@@ -227,8 +216,7 @@ class Division
      *
      * @param \MissionControl\Bundle\CampaignBundle\Entity\Productline $productlines
      */
-    public function removeProductline(\MissionControl\Bundle\CampaignBundle\Entity\Productline $productlines)
-    {
+    public function removeProductline(\MissionControl\Bundle\CampaignBundle\Entity\Productline $productlines) {
         $this->productlines->removeElement($productlines);
     }
 
@@ -237,8 +225,8 @@ class Division
      *
      * @return \Doctrine\Common\Collections\Collection 
      */
-    public function getProductlines()
-    {
+    public function getProductlines() {
         return $this->productlines;
     }
+
 }
