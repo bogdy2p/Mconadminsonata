@@ -33,7 +33,9 @@ class BrandAdmin extends Admin {
                 ->add('division')
                 ->add('_action', 'actions', array(
                     'actions' => array(
+                        'show' => array(),
                         'edit' => array(),
+                        'delete' => array(),
                     )
                 ))
         ;

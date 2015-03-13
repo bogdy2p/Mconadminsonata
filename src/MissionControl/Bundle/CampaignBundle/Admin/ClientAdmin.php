@@ -20,7 +20,7 @@ class ClientAdmin extends Admin {
         $query = parent::createQuery($context);
         $query->andWhere(
                 $query->expr()->neq($query->getRootAliases()[0] . '.name', ':value1')
-               , $query->expr()->neq($query->getRootAliases()[0] . '.name', ':value2')
+                , $query->expr()->neq($query->getRootAliases()[0] . '.name', ':value2')
         );
         $query->setParameter('value1', 'all_clients');  // Do not show temp_client
         $query->setParameter('value2', 'temp_client'); // Do not show all_clients
@@ -36,7 +36,9 @@ class ClientAdmin extends Admin {
                 ->add('dbid')
                 ->add('_action', 'actions', array(
                     'actions' => array(
+                        'show' => array(),
                         'edit' => array(),
+                        'delete' => array(),
                     )
                 ))
         ;

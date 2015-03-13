@@ -14,15 +14,17 @@ use Sonata\AdminBundle\Show\ShowMapper;
  * @author pbc
  */
 class DivisionAdmin extends Admin {
-   public function createQuery($context = 'list') {
+
+    public function createQuery($context = 'list') {
 
         $query = parent::createQuery($context);
         $query->andWhere(
                 $query->expr()->neq($query->getRootAliases()[0] . '.name', ':value1')
         );
-        $query->setParameter('value1','temp_division');  // Do not show temp_division
+        $query->setParameter('value1', 'temp_division');  // Do not show temp_division
         return $query;
     }
+
     public function configureListFields(ListMapper $list) {
 
         $list
@@ -31,7 +33,9 @@ class DivisionAdmin extends Admin {
                 ->add('client')
                 ->add('_action', 'actions', array(
                     'actions' => array(
+                        'show' => array(),
                         'edit' => array(),
+                        'delete' => array(),
                     )
                 ))
         ;
