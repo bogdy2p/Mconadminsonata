@@ -20,14 +20,8 @@ class UseraccessAdmin extends Admin {
         $query = parent::createQuery($context);
         $query->andWhere(
                 $query->expr()->neq($query->getRootAliases()[0] . '.client', ':value1')
-//               , $query->expr()->neq($query->getRootAliases()[0] . '.client', ':value2')
         );
         $query->setParameter('value1','2');  // 2 Is TEMP_CLIENT for THIS CASE
-//        $query->setParameter('value2','2');
-        
-////        print_r($query->getRootAliases());
-//        print_r($query->expr());
-//        die();
         return $query;
     }
 

@@ -15,6 +15,16 @@ use Sonata\AdminBundle\Show\ShowMapper;
  */
 class BrandAdmin extends Admin {
 
+    public function createQuery($context = 'list') {
+
+        $query = parent::createQuery($context);
+        $query->andWhere(
+                $query->expr()->neq($query->getRootAliases()[0] . '.name', ':value1')
+        );
+        $query->setParameter('value1', 'temp_brand');  // Do not show temp_brand
+        return $query;
+    }
+
     public function configureListFields(ListMapper $list) {
 
         $list

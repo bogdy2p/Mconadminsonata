@@ -15,6 +15,17 @@ use Sonata\AdminBundle\Show\ShowMapper;
  */
 class UserAdmin extends Admin {
 
+       public function createQuery($context = 'list') {
+
+        $query = parent::createQuery($context);
+        $query->andWhere(
+                $query->expr()->neq($query->getRootAliases()[0] . '.username', ':value1')
+        );
+        $query->setParameter('value1','qa_user');  // qa_user is quality-assurance user , do not show it.
+        return $query;
+    }
+    
+    
     public function configureListFields(ListMapper $list) {
 
         $list

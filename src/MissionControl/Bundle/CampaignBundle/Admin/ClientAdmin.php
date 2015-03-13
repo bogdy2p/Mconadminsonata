@@ -15,6 +15,19 @@ use Sonata\AdminBundle\Show\ShowMapper;
  */
 class ClientAdmin extends Admin {
 
+    public function createQuery($context = 'list') {
+
+        $query = parent::createQuery($context);
+        $query->andWhere(
+                $query->expr()->neq($query->getRootAliases()[0] . '.name', ':value1')
+               , $query->expr()->neq($query->getRootAliases()[0] . '.name', ':value2')
+        );
+        $query->setParameter('value1', 'all_clients');  // Do not show temp_client
+        $query->setParameter('value2', 'temp_client'); // Do not show all_clients
+
+        return $query;
+    }
+
     public function configureListFields(ListMapper $list) {
 
         $list

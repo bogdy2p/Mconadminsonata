@@ -14,7 +14,15 @@ use Sonata\AdminBundle\Show\ShowMapper;
  * @author pbc
  */
 class ProductAdmin extends Admin {
+   public function createQuery($context = 'list') {
 
+        $query = parent::createQuery($context);
+        $query->andWhere(
+                $query->expr()->neq($query->getRootAliases()[0] . '.name', ':value1')
+        );
+        $query->setParameter('value1','temp_product');  // Do not show temp_product in list
+        return $query;
+    }
     public function configureListFields(ListMapper $list) {
 
         $list
