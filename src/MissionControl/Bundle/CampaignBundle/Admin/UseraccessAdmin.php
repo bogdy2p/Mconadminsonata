@@ -51,14 +51,25 @@ class UseraccessAdmin extends Admin {
 
         $form
                 ->with('Please provide the new Access information:')
+                ->add('user')
                 ->add('client')
                 ->add('region')
                 ->add('country')
+
+                
                 ->add('all_countries', null, array('required' => false))
-                ->end()
-
-
+               
         ;
+        
+        if($form->get('country') != null){
+            $form->remove('all_countries');
+        }
+        
+        
+        $form ->end();
+//        var_dump($form);
+//        die();
+        
     }
 
     public function configureShowFields(ShowMapper $show) {
@@ -70,6 +81,7 @@ class UseraccessAdmin extends Admin {
                 ->add('country')
                 ->add('all_countries')
         ;
+        
     }
 
     public function configureDatagridFilters(DatagridMapper $filter) {
