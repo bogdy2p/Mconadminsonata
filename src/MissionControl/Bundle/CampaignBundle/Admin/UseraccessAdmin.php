@@ -18,12 +18,16 @@ class UseraccessAdmin extends Admin {
     public function createQuery($context = 'list') {
 
         $query = parent::createQuery($context);
-//        $query->andWhere(
-//                $query->expr()->eq($query->getRootAliases()[0] . '.client', ':my_param')
-//        );
-//        $query->setParameter('client','all_clients');
+        $query->andWhere(
+                $query->expr()->neq($query->getRootAliases()[0] . '.client', ':value1')
+//               , $query->expr()->neq($query->getRootAliases()[0] . '.client', ':value2')
+        );
+        $query->setParameter('value1','2');  // 2 Is TEMP_CLIENT for THIS CASE
+//        $query->setParameter('value2','2');
         
-        
+////        print_r($query->getRootAliases());
+//        print_r($query->expr());
+//        die();
         return $query;
     }
 
@@ -81,7 +85,6 @@ class UseraccessAdmin extends Admin {
                 ->add('id')
                 ->add('user')
                 ->add('client')
-//->add('country')
         ;
     }
 
