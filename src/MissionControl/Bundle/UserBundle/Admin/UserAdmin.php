@@ -54,7 +54,6 @@ class UserAdmin extends Admin {
 
     public function configureFormFields(FormMapper $form) {
 
-        $date = new \DateTime();
         $form
                 ->tab('UserData')
                 ->with('N User information:')

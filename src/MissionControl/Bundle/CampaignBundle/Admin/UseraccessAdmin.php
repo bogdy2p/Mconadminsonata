@@ -21,7 +21,7 @@ class UseraccessAdmin extends Admin {
         $query->andWhere(
                 $query->expr()->neq($query->getRootAliases()[0] . '.client', ':value1')
         );
-        $query->setParameter('value1','2');  // 2 Is TEMP_CLIENT for THIS CASE
+        $query->setParameter('value1', '2');  // 2 Is TEMP_CLIENT for THIS CASE
         return $query;
     }
 
@@ -33,7 +33,7 @@ class UseraccessAdmin extends Admin {
         $list
                 ->addIdentifier('id')
                 ->add('user')
-                ->add('client')
+                ->add('client', null, array('type' => 'text'))
                 ->add('region')
                 ->add('country')
                 ->add('all_countries')
@@ -49,10 +49,8 @@ class UseraccessAdmin extends Admin {
 
     public function configureFormFields(FormMapper $form) {
 
-        $date = new \DateTime();
         $form
                 ->with('Please provide the new Access information:')
-                ->add('user')
                 ->add('client')
                 ->add('region')
                 ->add('country')
@@ -76,7 +74,6 @@ class UseraccessAdmin extends Admin {
 
     public function configureDatagridFilters(DatagridMapper $filter) {
         $filter
-                ->add('id')
                 ->add('user')
                 ->add('client')
         ;

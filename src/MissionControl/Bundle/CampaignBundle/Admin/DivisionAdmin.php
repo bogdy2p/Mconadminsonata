@@ -56,14 +56,13 @@ class DivisionAdmin extends Admin {
 
         $show
                 ->add('name')
-                ->add('email')
-                ->add('website')
+                ->add('client')
+                ->add('id')
         ;
     }
 
     public function configureDatagridFilters(DatagridMapper $filter) {
         $filter
-                ->add('id')
                 ->add('name')
                 ->add('client')
         ;
