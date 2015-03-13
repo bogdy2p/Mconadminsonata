@@ -20,9 +20,14 @@ class UserAdmin extends Admin {
         $list
                 ->addIdentifier('id')
                 ->add('username')
+                ->add('email')
+                ->add('lastname')
+                ->add('firstname')
                 ->add('_action', 'actions', array(
                     'actions' => array(
+                        'show' => array(),
                         'edit' => array(),
+                        'delete' => array(),
                     )
                 ))
         ;

@@ -41,7 +41,9 @@ class UseraccessAdmin extends Admin {
                 ->add('all_countries')
                 ->add('_action', 'actions', array(
                     'actions' => array(
+                        'show' => array(),
                         'edit' => array(),
+                        'delete' => array(),
                     )
                 ))
         ;
