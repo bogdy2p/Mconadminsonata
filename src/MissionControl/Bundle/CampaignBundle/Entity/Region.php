@@ -25,6 +25,10 @@ class Region {
         $this->countries = new ArrayCollection();
     }
 
+    public function __toString() {
+        return $this->getName();
+    }
+
     /**
      * @var integer
      *
@@ -127,15 +131,13 @@ class Region {
         return $this->countries;
     }
 
-
     /**
      * Set createdAt
      *
      * @param \DateTime $createdAt
      * @return Region
      */
-    public function setCreatedAt($createdAt)
-    {
+    public function setCreatedAt($createdAt) {
         $this->createdAt = $createdAt;
 
         return $this;
@@ -146,8 +148,7 @@ class Region {
      *
      * @return \DateTime 
      */
-    public function getCreatedAt()
-    {
+    public function getCreatedAt() {
         return $this->createdAt;
     }
 
@@ -157,8 +158,7 @@ class Region {
      * @param \DateTime $updatedAt
      * @return Region
      */
-    public function setUpdatedAt($updatedAt)
-    {
+    public function setUpdatedAt($updatedAt) {
         $this->updatedAt = $updatedAt;
 
         return $this;
@@ -169,8 +169,8 @@ class Region {
      *
      * @return \DateTime 
      */
-    public function getUpdatedAt()
-    {
+    public function getUpdatedAt() {
         return $this->updatedAt;
     }
+
 }

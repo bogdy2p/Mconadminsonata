@@ -12,6 +12,11 @@ services:
         tags:
             - { name: sonata.admin, manager_type: orm, group: Users, label: Users }
         arguments: [null, MissionControl\Bundle\UserBundle\Entity\User, SonataAdminBundle:CRUD]
+    admin.useraccess:
+        class: MissionControl\Bundle\CampaignBundle\Admin\UseraccessAdmin
+        tags:
+            - {name: sonata.admin, manager_type: orm, group: Users, label: Useraccess }
+        arguments: [null, MissionControl\Bundle\CampaignBundle\Entity\Useraccess, SonataAdminBundle:CRUD]
     admin.client:
         class: MissionControl\Bundle\CampaignBundle\Admin\ClientAdmin
         tags:
@@ -37,6 +42,7 @@ services:
         tags:
             - { name: sonata.admin, manager_type: orm, group: References, label: Products }
         arguments: [null, MissionControl\Bundle\CampaignBundle\Entity\Product, SonataAdminBundle:CRUD]
+    
     twig.extension.text:
         class: Twig_Extensions_Extension_Text
         tags:

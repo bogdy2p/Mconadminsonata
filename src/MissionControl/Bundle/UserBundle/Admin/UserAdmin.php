@@ -36,16 +36,18 @@ class UserAdmin extends Admin {
                 ->add('username')
                 ->add('email')
                 ->add('password')
-                ->add('enabled')
+                ->add('enabled', null, array('required' => false))
                 ->add('firstname')
                 ->add('lastname')
                 ->add('office')
                 ->add('phone')
                 ->add('title')
                 ->end()
-                
+              
                 
         ;
+        
+      
 
     }
 
@@ -65,4 +67,5 @@ class UserAdmin extends Admin {
         ;
     }
 
+    
 }

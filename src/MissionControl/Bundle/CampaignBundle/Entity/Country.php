@@ -24,6 +24,10 @@ class Country {
         $this->campaigns = new ArrayCollection();
     }
 
+    public function __toString() {
+        return $this->getName();
+    }
+
     /**
      * @var integer
      *
@@ -203,15 +207,13 @@ class Country {
         return $this;
     }
 
-
     /**
      * Set createdAt
      *
      * @param \DateTime $createdAt
      * @return Country
      */
-    public function setCreatedAt($createdAt)
-    {
+    public function setCreatedAt($createdAt) {
         $this->createdAt = $createdAt;
 
         return $this;
@@ -222,8 +224,7 @@ class Country {
      *
      * @return \DateTime 
      */
-    public function getCreatedAt()
-    {
+    public function getCreatedAt() {
         return $this->createdAt;
     }
 
@@ -233,8 +234,7 @@ class Country {
      * @param \DateTime $updatedAt
      * @return Country
      */
-    public function setUpdatedAt($updatedAt)
-    {
+    public function setUpdatedAt($updatedAt) {
         $this->updatedAt = $updatedAt;
 
         return $this;
@@ -245,8 +245,8 @@ class Country {
      *
      * @return \DateTime 
      */
-    public function getUpdatedAt()
-    {
+    public function getUpdatedAt() {
         return $this->updatedAt;
     }
+
 }
