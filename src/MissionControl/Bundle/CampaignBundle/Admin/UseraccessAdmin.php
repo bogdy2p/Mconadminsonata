@@ -49,22 +49,22 @@ class UseraccessAdmin extends Admin {
 
     public function configureFormFields(FormMapper $form) {
 
-        $form
-                ->with('Please provide the new Access information:')
-                ->add('user')
-                ->add('client')
-                ->add('region')
-                ->add('country')
-
-                
-                ->add('all_countries', null, array('required' => false))
-               
-        ;
         
-        if($form->get('country') != null){
-            $form->remove('all_countries');
+        if ($this->hasRequest()) {
+            $link_parameters = array('context' => $this->getRequest()->get('context'));
+        }else{
+            $link_parameters = array();
         }
         
+        $form
+                ->add('user', 'sonata_type_model_list', array(
+                    'class' => 'CampaignBundle:Useraccess',
+                    'required' => false,
+                ),
+                array('edit' => 'inline', 'inline' => 'table',))
+                
+        ;
+     
         
         $form ->end();
 //        var_dump($form);

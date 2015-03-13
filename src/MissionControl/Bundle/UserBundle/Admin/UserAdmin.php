@@ -55,8 +55,8 @@ class UserAdmin extends Admin {
     public function configureFormFields(FormMapper $form) {
 
         $form
-                ->tab('UserData')
-                ->with('N User information:')
+                
+                ->with('User information:')
                 ->add('username')
                 ->add('email')
                 ->add('password')
@@ -68,9 +68,8 @@ class UserAdmin extends Admin {
                 ->add('title')
 //                ->add('roles')
                 ->end()
-                ->end()
-                ->tab('UserAccess')
-                ->with('Configure this user\'s Access')
+                
+                ->with('User Access')
                 ->end()
 
         ;
