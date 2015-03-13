@@ -31,7 +31,6 @@ class ProductAdmin extends Admin {
                 ->addIdentifier('id')
                 ->add('name')
                 ->add('productline')
-//                ->add('brand')
                 ->add('_action', 'actions', array(
                     'actions' => array(
                         'show' => array(),
@@ -64,9 +63,7 @@ class ProductAdmin extends Admin {
 
     public function configureDatagridFilters(DatagridMapper $filter) {
         $filter
-//                ->add('id')
                 ->add('name')
-//                ->add('productline')
         ;
     }
 

@@ -4,7 +4,7 @@
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "e76dd51289d9c7d69a7482bdff489566",
+    "hash": "bce773ec9c1b18754ab2d7fed267ce19",
     "packages": [
         {
             "name": "doctrine/annotations",
@@ -831,6 +831,57 @@
                 "orm"
             ],
             "time": "2014-12-16 13:45:01"
+        },
+        {
+            "name": "erivello/simple-html-dom-bundle",
+            "version": "dev-master",
+            "target-dir": "Erivello/SimpleHtmlDomBundle",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/erivello/SimpleHtmlDomBundle.git",
+                "reference": "fcc915a8e53344f36af0d9063a38168cc992d57d"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/erivello/SimpleHtmlDomBundle/zipball/fcc915a8e53344f36af0d9063a38168cc992d57d",
+                "reference": "fcc915a8e53344f36af0d9063a38168cc992d57d",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.3.3",
+                "symfony/browser-kit": "2.*",
+                "symfony/finder": "2.*",
+                "symfony/form": "2.*",
+                "symfony/framework-bundle": "2.*",
+                "symfony/yaml": "2.*"
+            },
+            "type": "symfony-bundle",
+            "autoload": {
+                "psr-0": {
+                    "Erivello\\SimpleHtmlDomBundle": ""
+                },
+                "classmap": [
+                    "lib"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Edoardo Rivello",
+                    "email": "edoardo.rivello@gmail.com"
+                }
+            ],
+            "description": "Bundle around Simple HTML DOM library",
+            "homepage": "https://github.com/erivello/SimpleHtmlDomBundle",
+            "keywords": [
+                "dom",
+                "html",
+                "php"
+            ],
+            "time": "2013-12-07 15:31:17"
         },
         {
             "name": "friendsofsymfony/rest-bundle",
@@ -4788,7 +4839,8 @@
     "stability-flags": {
         "phpoffice/phppowerpoint": 20,
         "knplabs/gaufrette": 20,
-        "knplabs/knp-snappy-bundle": 20
+        "knplabs/knp-snappy-bundle": 20,
+        "erivello/simple-html-dom-bundle": 20
     },
     "prefer-stable": false,
     "prefer-lowest": false,

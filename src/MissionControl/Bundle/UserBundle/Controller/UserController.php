@@ -24,8 +24,18 @@ use \Symfony\Component\HttpKernel\Exception\HttpException;
 use Symfony\Component\HttpFoundation\File\File;
 use JMS\Serializer\SerializationContext;
 
+
+
+
+
+
 class UserController extends FOSRestController {
 
+    
+   
+    
+    
+    
     public function timezoneUTC() {
         return new \DateTimeZone('UTC');
     }
@@ -711,118 +721,5 @@ class UserController extends FOSRestController {
         return $response;
     }
 
-    // /**
-    //  * 
-    //  * @Route("api/v1/users/{user_id}/info ", name="_get_user_info")
-    //  * @Method("GET")
-    //  * @ApiDoc(
-    //  *    resource = true,
-    //  *    description = "ENTER DESCRIPTION [UNDEr HEAVY CONSTRUCTION DUE TO NEW ROLES REQUIREMENT AND CAMPAIGN VISIBLESTATE]",
-    //  *    statusCodes = {
-    //  *     200 = "Returned when ",
-    //  *     403 = "Returned when user API KEY is not valid.",
-    //  *     404 = {
-    //  *         "Returned when"
-    //  *     },
-    //  *     500 = "Returned when no token was found in header"
-    //  *    },
-    //  *    requirements = {
-    //  *      {"name"="user_id",     "dataType"="integer","requirement"="true", "description"="The user's unique id"},
-    //  *      {"name" = "_format", "requirement" = "false" }
-    //  *    }
-    //  * )
-    //  * @return array
-    //  * @View()
-    //  */
-    // public function getUsersInfoAction($user_id, Request $request) {
-    //     $response = new Response();
-    //     $user = $this->getDoctrine()->getRepository('UserBundle:User')->findOneById($user_id);
-    //     //CHECK THAT THE USER EXISTS IN THE SYSTEM
-    //     if (!$user) {
-    //         $response->setStatusCode(404);
-    //         $response->setContent(json_encode(array('success' => false, 'message' => 'There is no user for that user_id.')));
-    //         return $response;
-    //     }
-    //     $roles = $user->getRoles();
-    //     foreach ($roles as $role) {
-    //         $db_role = $this->getDoctrine()->getRepository('UserBundle:Role')->findOneByName($role);
-    //         if ($db_role) {
-    //             $the_role_id = $db_role->getId();
-    //             $the_role_name = $db_role->getName();
-    //             $the_role_sysname = $db_role->getSystemname();
-    //         }
-    //     }
-    //     $primary_user_data = array(
-    //         'user_id' => $user->getId(),
-    //         'user_role_id' => $the_role_id,
-    //         'user_role_name' => $the_role_name,
-    //         'firstname' => $user->getFirstname(),
-    //         'lastname' => $user->getLastname(),
-    //         'email' => $user->getEmail(),
-    //     );
-    //     /////////////////////////////////////////////////////////////////////////////////////////////////
-    //     /////////////////////////////////////////////////////////////////////////////////////////////////
-    //     $all_the_tasks_of_this_user = array();
-    //     $tasks_where_user_is_owner = $this->getDoctrine()->getRepository('TaskBundle:Task')->findBy(['owner' => $user]);
-    //     foreach ($tasks_where_user_is_owner as $twuio) {
-    //         if ($twuio->getCampaign()->getNotVisible() == false) {
-    //             //ONLY ADD TASKS THAT HAVE THE CAMPAIGN VISIBILITY ENABLED (NOT_VISIBLE = FALSE)
-    //             $all_the_tasks_of_this_user[] = $twuio->getId();
-    //         }
-    //     }
-    //     $tasks_where_user_is_creator = $this->getDoctrine()->getRepository('TaskBundle:Task')->findBy(['createdby' => $user]);
-    //     foreach ($tasks_where_user_is_creator as $twuic) {
-    //         if ($twuic->getCampaign()->getNotvisible() == false) {
-    //             //ONLY ADD TASKS THAT HAVE THE CAMPAIGN VISIBILITY ENABLED (NOT_VISIBLE = FALSE) 
-    //             $all_the_tasks_of_this_user[] = $twuic->getId();
-    //         }
-    //     }
-    //     //PRELUAM TOATE INTRARILE DIN TEAMMEMBER UNDE USERUL E REVIEWER        
-    //     $teammembers = $this->getDoctrine()->getRepository('CampaignBundle:Teammember')->findBy(['member' => $user, 'is_reviewer' => true]);
-    //     //For each campaign where the user is reviewer, grab the campaign's tasks array.
-    //     $campaign_ids_where_user_is_reviewer = array();
-    //     foreach ($teammembers as $teammember) {
-    //         $campaign_ids_where_user_is_reviewer[] = $teammember->getCampaign()->getId();
-    //     }
-    //     $task_ids_of_all_tasks_where_user_is_reviewer_within_campaign = array();
-    //     foreach ($campaign_ids_where_user_is_reviewer as $campaign_id) {
-    //         $campaign = $this->getDoctrine()->getRepository('CampaignBundle:Campaign')->findOneBy(
-    //                 ['id' => $campaign_id,
-    //                     'not_visible' => false,]
-    //         );
-    //         $tasks_of_this_campaign = $this->getDoctrine()->getRepository('TaskBundle:Task')->findBy(['campaign' => $campaign]);
-    //         foreach ($tasks_of_this_campaign as $task) {
-    //             $task_ids_of_all_tasks_where_user_is_reviewer_within_campaign[] = $task->getId();
-    //         }
-    //     }
-    //     foreach ($task_ids_of_all_tasks_where_user_is_reviewer_within_campaign as $task_id) {
-    //         $all_the_tasks_of_this_user[] = $task_id;
-    //     }
-    //     $unique_tasks_of_this_user = array_unique($all_the_tasks_of_this_user);
-    //     $returned_task_data_array = array();
-    //     foreach ($unique_tasks_of_this_user as $uniquetask) {
-    //         $grabbed_task = $this->getDoctrine()->getRepository('TaskBundle:Task')->find($uniquetask);
-    //         $status_changer = $grabbed_task->getStatuschangedby();
-    //         $task_data = array(
-    //             'campaign_id' => $grabbed_task->getCampaign()->getId(),
-    //             'campaign_name' => $grabbed_task->getCampaign()->getName(),
-    //             'task_id' => $grabbed_task->getId(),
-    //             'task_name' => $grabbed_task->getTaskname()->getName(),
-    //             'last_task_status' => $grabbed_task->getTaskstatus()->getName(),
-    //             'last_task_message' => $grabbed_task->getTaskmessage() ? $grabbed_task->getTaskmessage()->getMessage() : null,
-    //             'last_task_status_date' => $grabbed_task->getTaskstatus() ? date('Y-m-d', $grabbed_task->getTaskstatus()->getUpdatedat()->getTimestamp()) : null,
-    //             'status_changer_user_id' => $status_changer ? $status_changer->getId() : null,
-    //             'status_changer_first_name' => $status_changer ? $status_changer->getFirstname() : null,
-    //             'status_changer_last_name' => $status_changer ? $status_changer->getLastname() : null,
-    //             'status_changer_profile_picture' => $status_changer ? $status_changer->getProfilepicture() : null,
-    //         );
-    //         $returned_task_data_array[] = $task_data;
-    //     }
-    //     $response->setStatusCode(200);
-    //     $response->setContent(json_encode(array(
-    //         'user' => $primary_user_data,
-    //         'tasks_data' => $returned_task_data_array
-    //     )));
-    //     return $response;
-    // }
+  
 }

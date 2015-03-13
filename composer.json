@@ -49,8 +49,8 @@
         "knplabs/knp-menu-bundle": "~1.1",
         
         "sonata-project/doctrine-orm-admin-bundle": "2.2.6",
-        "sonata-project/jquery-bundle": "1.8.0"
-
+        "sonata-project/jquery-bundle": "1.8.0",
+        "erivello/simple-html-dom-bundle": "dev-master"
 
 
         

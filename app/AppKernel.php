@@ -43,6 +43,7 @@ class AppKernel extends Kernel
             new Sonata\BlockBundle\SonataBlockBundle(),
             new Sonata\CacheBundle\SonataCacheBundle(),
             new Sonata\AdminBundle\SonataAdminBundle(),
+//            new Erivello\SimpleHtmlDomBundle\ErivelloSimpleHtmlDomBundle(),
             
         );
 

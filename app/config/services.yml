@@ -11,12 +11,12 @@ services:
         class: MissionControl\Bundle\UserBundle\Admin\UserAdmin
         tags:
             - { name: sonata.admin, manager_type: orm, group: Users, label: Users }
-        arguments: [null, MissionControl\Bundle\UserBundle\Entity\User, SonataAdminBundle:CRUD]
-    admin.useraccess:
-        class: MissionControl\Bundle\CampaignBundle\Admin\UseraccessAdmin
-        tags:
-            - {name: sonata.admin, manager_type: orm, group: Users, label: Useraccess }
-        arguments: [null, MissionControl\Bundle\CampaignBundle\Entity\Useraccess, SonataAdminBundle:CRUD]
+        arguments: [null, MissionControl\Bundle\UserBundle\Entity\User, UserBundle:CRUD]
+#    admin.useraccess:
+#        class: MissionControl\Bundle\CampaignBundle\Admin\UseraccessAdmin
+#        tags:
+#            - {name: sonata.admin, manager_type: orm, group: Users, label: Useraccess }
+#        arguments: [null, MissionControl\Bundle\CampaignBundle\Entity\Useraccess, SonataAdminBundle:CRUD]
     admin.client:
         class: MissionControl\Bundle\CampaignBundle\Admin\ClientAdmin
         tags:

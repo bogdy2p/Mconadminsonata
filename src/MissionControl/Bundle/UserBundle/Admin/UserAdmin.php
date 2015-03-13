@@ -7,6 +7,7 @@ use Sonata\AdminBundle\Form\FormMapper;
 use Sonata\AdminBundle\Datagrid\DatagridMapper;
 use Sonata\AdminBundle\Datagrid\ListMapper;
 use Sonata\AdminBundle\Show\ShowMapper;
+use Sonata\AdminBundle\Route\RouteCollection;
 
 /**
  * Description of UserAdmin
@@ -15,17 +16,20 @@ use Sonata\AdminBundle\Show\ShowMapper;
  */
 class UserAdmin extends Admin {
 
-       public function createQuery($context = 'list') {
+    public function createQuery($context = 'list') {
 
         $query = parent::createQuery($context);
         $query->andWhere(
                 $query->expr()->neq($query->getRootAliases()[0] . '.username', ':value1')
         );
-        $query->setParameter('value1','qa_user');  // qa_user is quality-assurance user , do not show it.
+        $query->setParameter('value1', 'qa_user');  // qa_user is quality-assurance user , do not show it.
         return $query;
     }
-    
-    
+
+    public function configureRoutes(RouteCollection $collection) {
+        $collection->add('clone', $this->getRouterIdParameter().'/clone');
+    }
+
     public function configureListFields(ListMapper $list) {
 
         $list
@@ -36,9 +40,13 @@ class UserAdmin extends Admin {
                 ->add('firstname')
                 ->add('_action', 'actions', array(
                     'actions' => array(
+                         'Clone' => array(
+                            'template' => 'UserBundle:CRUD:list__action_clone.html.twig'
+                        ),
                         'show' => array(),
                         'edit' => array(),
                         'delete' => array(),
+                       
                     )
                 ))
         ;
@@ -48,7 +56,8 @@ class UserAdmin extends Admin {
 
         $date = new \DateTime();
         $form
-                ->with('Please provide the new User information:')
+                ->tab('UserData')
+                ->with('N User information:')
                 ->add('username')
                 ->add('email')
                 ->add('password')
@@ -60,16 +69,12 @@ class UserAdmin extends Admin {
                 ->add('title')
 //                ->add('roles')
                 ->end()
+                ->end()
+                ->tab('UserAccess')
                 ->with('Configure this user\'s Access')
-//                ->add('region', null, null)
-//                ->add('country')
-//                ->add('all_countries')
-              
-                
-        ;
-        
-      
+                ->end()
 
+        ;
     }
 
     public function configureShowFields(ShowMapper $show) {
@@ -88,5 +93,4 @@ class UserAdmin extends Admin {
         ;
     }
 
-    
 }
