@@ -58,7 +58,12 @@ class UserAdmin extends Admin {
                 ->add('office')
                 ->add('phone')
                 ->add('title')
+//                ->add('roles')
                 ->end()
+                ->with('Configure this user\'s Access')
+//                ->add('region', null, null)
+//                ->add('country')
+//                ->add('all_countries')
               
                 
         ;
@@ -78,7 +83,7 @@ class UserAdmin extends Admin {
 
     public function configureDatagridFilters(DatagridMapper $filter) {
         $filter
-                ->add('id')
+//                ->add('id')
                 ->add('username')
         ;
     }
