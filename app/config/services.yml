@@ -7,6 +7,11 @@ services:
 #    service_name:
 #        class: AppBundle\Directory\ClassName
 #        arguments: ["@another_service_name", "plain_value", "%parameter_name%"]
+    admin.useruseraccess:
+        class: MissionControl\Bundle\CampaignBundle\Admin\UserUseraccessAdmin
+        tags:
+            - {name: sonata.admin, manager_type: orm, group: Users, label: UserWithAccessGoodOne }
+        arguments: [null, MissionControl\Bundle\CampaignBundle\Entity\Useraccess, SonataAdminBundle:CRUD]   
     admin.user:
         class: MissionControl\Bundle\UserBundle\Admin\UserAdmin
         tags:
@@ -15,7 +20,7 @@ services:
     admin.useraccess:
         class: MissionControl\Bundle\CampaignBundle\Admin\UseraccessAdmin
         tags:
-            - {name: sonata.admin, manager_type: orm, group: Users, label: Useraccess }
+            - {name: sonata.admin, manager_type: orm, group: Users, label: Access }
         arguments: [null, MissionControl\Bundle\CampaignBundle\Entity\Useraccess, SonataAdminBundle:CRUD]
     admin.client:
         class: MissionControl\Bundle\CampaignBundle\Admin\ClientAdmin
