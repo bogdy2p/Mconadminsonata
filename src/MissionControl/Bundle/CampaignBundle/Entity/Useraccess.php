@@ -68,6 +68,9 @@ class Useraccess {
      */
     private $all_countries;
 
+    
+    
+    
     /**
      * Get id
      *
@@ -183,5 +186,11 @@ class Useraccess {
     public function getAllCountries()
     {
         return $this->all_countries;
+    }
+    
+    public function __toString() {
+        
+        return $this->getUser();
+        
     }
 }

@@ -13,7 +13,7 @@ use Sonata\AdminBundle\Show\ShowMapper;
  *
  * @author pbc
  */
-class UserUseraccessAdmin extends Admin {
+class AccessAdmin extends Admin {
 
     public function createQuery($context = 'list') {
 
@@ -26,8 +26,6 @@ class UserUseraccessAdmin extends Admin {
     }
 
     public function configureListFields(ListMapper $list) {
-
-
 
 
         $list
@@ -49,27 +47,24 @@ class UserUseraccessAdmin extends Admin {
 
     public function configureFormFields(FormMapper $form) {
 
-        
-        if ($this->hasRequest()) {
-            $link_parameters = array('context' => $this->getRequest()->get('context'));
-        }else{
-            $link_parameters = array();
-        }
+//        var_dump($form->getFormBuilder()->get('UserAdmin'));
+//        die('I DIED');
         
         $form
-                ->add('user', 'sonata_type_model_list', array(
-                    'class' => 'CampaignBundle:Useraccess',
-                    'required' => false,
-                ),
-                array('edit' => 'inline', 'inline' => 'table',))
                 
+                ->add('user')
+                ->add('client')
+                ->add('region')
+                ->add('country')
+                ->add('all_countries')
+                ->end()
         ;
-     
-        
-        $form ->end();
-//        var_dump($form);
-//        die();
-        
+    }
+
+    public function preUpdate($object) {
+        foreach ($object->getUseraccesses() as $useraccess) {
+            $useraccess->setUser($object);
+        }
     }
 
     public function configureShowFields(ShowMapper $show) {
@@ -81,7 +76,6 @@ class UserUseraccessAdmin extends Admin {
                 ->add('country')
                 ->add('all_countries')
         ;
-        
     }
 
     public function configureDatagridFilters(DatagridMapper $filter) {

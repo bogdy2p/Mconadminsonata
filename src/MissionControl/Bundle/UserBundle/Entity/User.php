@@ -25,6 +25,7 @@ class User extends BaseUser {
     public function __construct() {
         parent::__construct();
 
+        $this->accesses = new ArrayCollection();
         $this->campaigns = new ArrayCollection();
         $this->tasks = new ArrayCollection();
         $this->files = new ArrayCollection();
@@ -59,6 +60,11 @@ class User extends BaseUser {
      */
     protected $honeyuuid;
 
+    /**
+     * @ORM\OneToMany(targetEntity="MissionControl\Bundle\CampaignBundle\Entity\Useraccess", mappedBy="user" , cascade={"persist"})
+     *
+     */
+    public $accesses;
     
     /**
      * @ORM\OneToMany(targetEntity="MissionControl\Bundle\CampaignBundle\Entity\Campaign", mappedBy="user")
@@ -424,5 +430,38 @@ class User extends BaseUser {
     public function getHoneyuuid()
     {
         return $this->honeyuuid;
+    }
+
+    /**
+     * Add accesses
+     *
+     * @param \MissionControl\Bundle\CampaignBundle\Entity\Useraccess $accesses
+     * @return User
+     */
+    public function addAccess(\MissionControl\Bundle\CampaignBundle\Entity\Useraccess $accesses)
+    {
+        $this->accesses[] = $accesses;
+
+        return $this;
+    }
+
+    /**
+     * Remove accesses
+     *
+     * @param \MissionControl\Bundle\CampaignBundle\Entity\Useraccess $accesses
+     */
+    public function removeAccess(\MissionControl\Bundle\CampaignBundle\Entity\Useraccess $accesses)
+    {
+        $this->accesses->removeElement($accesses);
+    }
+
+    /**
+     * Get accesses
+     *
+     * @return \Doctrine\Common\Collections\Collection 
+     */
+    public function getAccesses()
+    {
+        return $this->accesses;
     }
 }

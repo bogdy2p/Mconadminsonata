@@ -27,7 +27,7 @@ class UserAdmin extends Admin {
     }
 
     public function configureRoutes(RouteCollection $collection) {
-        $collection->add('clone', $this->getRouterIdParameter().'/clone');
+        $collection->add('clone', $this->getRouterIdParameter() . '/clone');
     }
 
     public function configureListFields(ListMapper $list) {
@@ -40,13 +40,12 @@ class UserAdmin extends Admin {
                 ->add('firstname')
                 ->add('_action', 'actions', array(
                     'actions' => array(
-                         'Clone' => array(
+                        'Clone' => array(
                             'template' => 'UserBundle:CRUD:list__action_clone.html.twig'
                         ),
                         'show' => array(),
                         'edit' => array(),
                         'delete' => array(),
-                       
                     )
                 ))
         ;
@@ -54,25 +53,73 @@ class UserAdmin extends Admin {
 
     public function configureFormFields(FormMapper $form) {
 
-        $form
-                
-                ->with('User information:')
-                ->add('username')
-                ->add('email')
-                ->add('password')
-                ->add('enabled', null, array('required' => false))
-                ->add('firstname')
-                ->add('lastname')
-                ->add('office')
-                ->add('phone')
-                ->add('title')
+//        $form
+//                ->with('User')
+//                ->add('username')
+//                ->add('email')
+//                ->add('lastname')
+//                ->add('firstname')
+//                ->add('password')
 //                ->add('roles')
-                ->end()
-                
-                ->with('User Access')
+//                ->add('phone')
+//                ->add('title')
+//                ->add('office')
+//                ->end()
+////                ->with('UserAccess')
+////                ->add('accesses', 'sonata_type_collection', array(
+////                    'required' => false,
+////                        ), array(
+////                    'edit' => 'inline',
+////                    'inline' => 'table',
+////                    'sortable' => 'position',
+////                        ), array(
+////                ))
+////                ->end()
+//        ;
+        
+        
+          $form
+                ->with('User')
+                ->add('username', 'sonata_type_admin', array(
+                    'class' => 'UserBundle:User',
+                    'required' => false,
+                        ), array(
+                    'edit' => 'inline',
+                    'inline' => 'table',
+                    'sortable' => 'position',
+                ))
+                ->end();
+        $form->with('UserAccess')
+                ->add('accesses', 'sonata_type_collection', array(
+                    'required' => false,
+                        ), array(
+                    'edit' => 'inline',
+                    'inline' => 'table',
+                    'sortable' => 'position',
+                        ), array(
+                ))
                 ->end()
 
         ;
+    }
+
+    public function postPersist($user) {
+
+
+//        $this->configureFormFields($user)
+//                ->with('UserAccess')
+//                 ->add('accesses', 'sonata_type_collection', array(
+//                    'required' => false,
+//                        ), array(
+//                    'edit' => 'inline',
+//                    'inline' => 'table',
+//                    'sortable' => 'position',
+//                        ), array(
+//                ))
+//                ->end()
+//        ;
+
+
     }
 
     public function configureShowFields(ShowMapper $show) {
